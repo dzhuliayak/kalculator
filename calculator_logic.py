@@ -5,10 +5,9 @@ def subtract(a,b):
     return a-b
 
 def multiply(a,b):
-    return a+b
+    return a*b
 
 def divide(a,b):
-    if b !=0:
-        return a/b
-    else:
-        return "деление на ноль!"
+    if b ==0:
+        raise ZeroDivisionError("Деление на ноль!") # исключение
+    return a/b
