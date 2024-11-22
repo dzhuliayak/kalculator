@@ -7,6 +7,7 @@ first = 0 #первая
 second = 0 #вторая
 result = 0
 
+
 def calc():
     second = float(entry.get())
     if oper =="+":
@@ -19,6 +20,7 @@ def calc():
         result = c.divide(first, second)
     entry.delete(0, END)
     entry.insert(0,str(result))
+
 
 def enter_number(number):
     entry.insert(END, number)
@@ -43,14 +45,13 @@ def validate_entry():
         entry.delete(0, END)
         entry.insert(0, txt)
 
+
 window=Tk()
 window.title("калькулятор")
 
 entry = ttk.Entry()
 entry.grid(row=0, column=0, columnspan=4, sticky="ew")
 entry.bind("<KeyRelease>", lambda event: validate_entry())# запрещает вводить что-то другое в поле entry
-
-
 
 ttk.Button(text="1", command=lambda: enter_number("1")).grid(row=1, column=0)
 ttk.Button(text="2", command=lambda: enter_number("2")).grid(row=1, column=1)
@@ -70,8 +71,5 @@ ttk.Button(text="+", command=lambda: set_operation("+")).grid(row=1, column=3)
 ttk.Button(text="-", command=lambda: set_operation("-")).grid(row=2, column=3)
 ttk.Button(text="*", command=lambda: set_operation("*")).grid(row=3, column=3)
 ttk.Button(text="/", command=lambda: set_operation("/")).grid(row=4, column=3)
-
-
-
 
 window.mainloop()
